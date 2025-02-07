@@ -16,10 +16,11 @@ public class Cart {
         return items;
     }
 
+
     public double getCartTotal() {
         double sum = 0.0;
         for (Shoe shoe : items) {
-            sum += shoe.pricePerUnit();
+            sum += shoe.pricePerUnit() * shoe.getQty();
         }
         return sum;
     }
@@ -32,7 +33,7 @@ public class Cart {
         StringBuilder sb = new StringBuilder("\n=== Your Cart ===\n");
         sb.append("------------------------------------------------------------------------------------------\n");
         sb.append(String.format("| %-3s | %-10s | %-20s | %-7s | %-4s | %-6s | %-6s | %-10s |\n",
-                "#", "Brand", "Model", "Color", "Size", "Sex", "Qty", "Total"));
+                "#", "Brand", "Model", "Color", "Size", "Sex", "Qty", "Per unit"));
         sb.append("------------------------------------------------------------------------------------------\n");
 
         for (int i = 0; i < items.size(); i++) {
@@ -42,7 +43,7 @@ public class Cart {
                     shoe.getSize(), shoe.getSex(), shoe.getQty(), shoe.pricePerUnit()));
         }
         sb.append("------------------------------------------------------------------------------------------\n");
-        sb.append(String.format("| %-74s | %6.0f SEK |\n", "Total Price:", getCartTotal()));
+        sb.append(String.format("| %-65s | %-1s SUM: | %6.0f SEK |\n", "Total Price:", "", getCartTotal()));
         sb.append("------------------------------------------------------------------------------------------\n");
 
         return sb.toString();

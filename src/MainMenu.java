@@ -18,6 +18,13 @@ public class MainMenu {
             System.out.println("7. Pay order");
             System.out.println("8. Exit");
 
+
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid option");
+                scanner.nextLine();
+                continue;
+            }
+
             int choice = scanner.nextInt();
             scanner.nextLine();
 

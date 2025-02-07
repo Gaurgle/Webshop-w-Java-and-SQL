@@ -40,7 +40,7 @@ public class ShoeSearchUtil {
         } catch (SQLException e) {
             String errorMessage = e.getMessage().toLowerCase();
             if (errorMessage.contains("out of stock")) {
-                System.out.println("Sorry, " + chosenShoe + " is out of stock.\n\n");
+                System.out.println("\nSorry, " +chosenShoe.getColor().toLowerCase() + " \"" + chosenShoe.getModel() + "\" in size " +chosenShoe.getSize() +" are out of stock.\n\n");
             } else {
                 System.out.println("unexpected error: " + e.getMessage());
             }

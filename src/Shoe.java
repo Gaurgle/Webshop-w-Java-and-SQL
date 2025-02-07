@@ -39,6 +39,10 @@ public class Shoe {
         return categories;
     }
 
+    public int numberOfItems() {
+        return categories.size();
+    }
+
     public int getShoeId() {
         return shoeId;
     }
@@ -48,7 +52,8 @@ public class Shoe {
     }
 
     public double pricePerUnit() {
-        return this.price * this.qty;
+        return this.price;
+//        return this.price * this.qty;
     }
 
     public Double getPrice() {
